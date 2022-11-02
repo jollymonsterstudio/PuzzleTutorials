@@ -62,7 +62,8 @@ void APressurePlateTrigger::OnBeginOverlap(UPrimitiveComponent* OverlappedCompon
 	{
 		MoveableMesh->Move(true);
 		Interact(true);
-
+		
+		bResetTrigger = true;
 		bIsTriggered = true;
 	}
 }
@@ -74,6 +75,7 @@ void APressurePlateTrigger::OnEndOverlap(UPrimitiveComponent* OverlappedComponen
 		MoveableMesh->Move(false);
 		Interact(false);
 
+		bResetTrigger = false;
 		bIsTriggered = false;
 	}
 }
